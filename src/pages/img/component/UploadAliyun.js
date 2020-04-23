@@ -5,23 +5,26 @@ import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
 
+const test = 'http://127.0.0.1:10088/api/ossUpload';
+const pro = 'https://api.xjq.icu/api/ossUpload';
 const UploadAliyun = ({ onChange }) => {
   const uploadParams = {
     name: 'file',
     multiple: false,
-    action: 'https://api.xjq.icu/api/ossUpload',
+    action: pro,
     onChange(info) {
       const { status } = info.file;
-      if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
+      // if (status !== 'uploading') {
+      //   console.log(info.file, info.fileList);
+      // }
+
       if (status === 'done') {
         const {
           response: { url },
           name
         } = info.file;
         message.success(`${name}上传成功!`);
-        onChange(url);
+        onChange(url.replace('http', 'https'));
       } else if (status === 'error') {
         const { name } = info.file;
         message.error(`${name}上传失败`);
