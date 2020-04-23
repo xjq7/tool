@@ -3,6 +3,9 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+
+const pro = process.env.NODE_ENV == 'production';
 
 module.exports = {
   entry: './index.js',
@@ -10,12 +13,16 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js'
   },
+  cache: true,
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        }
       },
       {
         test: /\.(sc|c)ss$/,
@@ -33,9 +40,24 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].css',
       chunkFilename: devMode ? '[id].css' : '[id].css'
-    })
+    }),
+    new HardSourceWebpackPlugin()
   ],
-  // devtool: 'cheap-module-eval-source-map',
+  // optimization: {
+  //   runtimeChunk: {
+  //     name: 'manifest'
+  //   },
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendor',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // },
+  devtool: '',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     hot: true
