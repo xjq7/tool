@@ -5,12 +5,21 @@ import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
 import { api } from '@/config/server';
+
 const UploadAliyun = ({ onChange }) => {
   const uploadParams = {
     name: 'file',
     accept: 'image/*',
     multiple: false,
     action: `${api}ossUpload`,
+    showUploadList: false,
+    beforeUpload(file) {
+      const isLt5M = file.size / 1024 / 1024 > 5;
+      if (isLt5M) {
+        message.error('请选择小于5 mb 的图片');
+        return false;
+      }
+    },
     onChange(info) {
       const { status } = info.file;
       if (status === 'done') {

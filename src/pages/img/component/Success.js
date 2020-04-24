@@ -7,7 +7,7 @@ const Success = ({ url, uploadNext }) => {
   return (
     <div className={styles.box}>
       <h1 style={{ color: '#40a9ff' }}>上传成功!</h1>
-      <img src={url} width={200} height={200}></img>
+      <img src={url} width={250}></img>
       <span className={styles.url}>{url}</span>
       <div>
         <Button
