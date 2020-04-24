@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './dev'),
     filename: 'bundle.js'
   },
   cache: true,
@@ -29,10 +30,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HardSourceWebpackPlugin()],
+  plugins: [
+    new HardSourceWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './dev/index.html'
+    })
+  ],
   devtool: '',
   devServer: {
-    contentBase: path.join(__dirname, '../dist'),
+    contentBase: path.join(__dirname, './dev'),
     hot: true
   }
 };
