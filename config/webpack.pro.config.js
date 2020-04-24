@@ -2,16 +2,15 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const devMode = process.env.NODE_ENV !== 'production';
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 module.exports = {
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/source'),
     filename: 'bundle.js'
   },
-  cache: true,
+  mode: 'production',
   module: {
     rules: [
       {
@@ -24,7 +23,7 @@ module.exports = {
       },
       {
         test: /\.(sc|c)ss$/,
-        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader?modules=true', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader?modules=true', 'sass-loader']
       },
       {
         test: /\.less$/,
@@ -35,10 +34,11 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin(),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].css',
-      chunkFilename: devMode ? '[id].css' : '[id].css'
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     }),
-    new HardSourceWebpackPlugin()
+    new HardSourceWebpackPlugin(),
+    new MinifyPlugin({}, { test: /\.js($|\?)/i })
   ],
   optimization: {
     minimize: false,
