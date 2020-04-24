@@ -3,12 +3,12 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
+const vendorPkg = ['react', 'react-dom', 'react-router-dom', 'prop-types'];
 module.exports = {
-  entry: './index.js',
+  entry: { bundle: './index.js', vendor: vendorPkg },
   output: {
     path: path.resolve(__dirname, '../dist/source'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   mode: 'production',
   module: {
@@ -37,20 +37,26 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new HardSourceWebpackPlugin(),
-    new MinifyPlugin({}, { test: /\.js($|\?)/i })
+    new HardSourceWebpackPlugin()
   ],
+
   optimization: {
-    minimize: false,
-    runtimeChunk: {
-      name: 'manifest'
-    },
+    minimize: true,
     splitChunks: {
       cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
+        reactBase: {
+          name: 'reactBase',
+          test: module => {
+            return /react|prop-types/.test(module.context);
+          },
+          chunks: 'initial',
+          priority: 10
+        },
+        common: {
+          name: 'common',
+          chunks: 'initial',
+          priority: 2,
+          minChunks: 2
         }
       }
     }
