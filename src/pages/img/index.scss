@@ -8,8 +8,7 @@
   background-color: black;
   position: absolute;
   .contentBox {
-    width: 60%;
-    height: 60%;
+    // width: 300px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -18,5 +17,32 @@
     .title {
       color: #40a9ff;
     }
+  }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px) {
+  .contentBox {
+    width: 500px;
+    height: 600px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .contentBox {
+    width: 600px;
+    height: 700px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 720px) {
+  .contentBox {
+    width: 400px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contentBox {
+    width: 90%;
+    height: 500px;
   }
 }

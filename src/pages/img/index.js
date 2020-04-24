@@ -22,7 +22,12 @@ class Img extends React.Component {
               <div>
                 <h1 className={styles.title}>Figure bed</h1>
               </div>
-              <UploadAliyun onChange={url => this.setState({ url, successUpload: true })}></UploadAliyun>
+              <UploadAliyun
+                viewSuccess={() => {
+                  this.setState({ successUpload: true });
+                }}
+                onChange={url => this.setState({ url, successUpload: true })}
+              ></UploadAliyun>
             </>
           )}
         </div>

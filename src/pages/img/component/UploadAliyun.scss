@@ -1,6 +1,25 @@
 .draggerBox {
-  width: 300px !important;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 720px) {
+  .draggerBox {
+    width: 200px !important;
+    height: 160px !important;
+  }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px) {
+  .draggerBox {
+    width: 300px !important;
+    height: 220px !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .draggerBox {
+    width: 400px !important;
+    height: 320px !important;
+  }
 }

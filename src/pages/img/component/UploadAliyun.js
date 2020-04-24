@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Upload, message } from 'antd';
+import { Upload, message, Button } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
 import { api } from '@/config/server';
 
-const UploadAliyun = ({ onChange }) => {
+const UploadAliyun = ({ onChange, viewSuccess }) => {
   const uploadParams = {
     name: 'file',
     accept: 'image/*',
@@ -42,12 +42,16 @@ const UploadAliyun = ({ onChange }) => {
         </p>
         <p className="ant-upload-text">选择图片(5 mb 以下)</p>
       </Dragger>
+      <Button style={{ marginTop: 30 }} type="primary" onClick={viewSuccess}>
+        查看已上传图片
+      </Button>
     </>
   );
 };
 
 UploadAliyun.propTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  viewSuccess: PropTypes.func.isRequired
 };
 
 export default UploadAliyun;
