@@ -4,3 +4,5 @@ export const dev = {
 export const pro = {
   api: 'https://api.xjq.icu/api/'
 };
+
+export const api = pro.api;

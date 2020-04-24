@@ -4,13 +4,13 @@ import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
-import { dev, pro } from '@/config/server';
+import { api } from '@/config/server';
 const UploadAliyun = ({ onChange }) => {
   const uploadParams = {
     name: 'file',
     accept: 'image/*',
     multiple: false,
-    action: `${dev.api}ossUpload`,
+    action: `${api}ossUpload`,
     onChange(info) {
       const { status } = info.file;
       if (status === 'done') {
