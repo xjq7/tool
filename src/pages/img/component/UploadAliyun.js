@@ -4,20 +4,15 @@ import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
-
-const test = 'http://127.0.0.1:10088/api/ossUpload';
-const pro = 'https://api.xjq.icu/api/ossUpload';
+import { dev, pro } from '@/config/server';
 const UploadAliyun = ({ onChange }) => {
   const uploadParams = {
     name: 'file',
+    accept: 'image/*',
     multiple: false,
-    action: pro,
+    action: `${dev.api}ossUpload`,
     onChange(info) {
       const { status } = info.file;
-      // if (status !== 'uploading') {
-      //   console.log(info.file, info.fileList);
-      // }
-
       if (status === 'done') {
         const {
           response: { url },
@@ -37,7 +32,7 @@ const UploadAliyun = ({ onChange }) => {
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">选择图片</p>
+        <p className="ant-upload-text">选择图片(5 mb 以下)</p>
       </Dragger>
     </>
   );
