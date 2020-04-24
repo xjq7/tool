@@ -38,6 +38,13 @@ module.exports = {
   ],
   devtool: '',
   devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:10088',
+        // changeOrigin: true, // target是域名的话，需要这个参数，
+        secure: false // 设置支持https协议的代理
+      }
+    },
     contentBase: path.join(__dirname, './dev'),
     hot: true
   }
