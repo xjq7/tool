@@ -4,6 +4,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const vendorPkg = ['react', 'react-dom', 'react-router-dom', 'prop-types'];
+
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
   entry: { bundle: './index.js', vendor: vendorPkg },
   output: {
@@ -37,7 +40,8 @@ module.exports = {
       filename: '[name].[hash].css',
       chunkFilename: '[name].[hash].css'
     }),
-    new HardSourceWebpackPlugin()
+    new HardSourceWebpackPlugin(),
+    new BundleAnalyzerPlugin()
   ],
 
   optimization: {
