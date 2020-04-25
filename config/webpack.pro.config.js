@@ -8,7 +8,7 @@ module.exports = {
   entry: { bundle: './index.js', vendor: vendorPkg },
   output: {
     path: path.resolve(__dirname, '../dist/source'),
-    filename: '[name].js'
+    filename: '[name].[hash].js'
   },
   mode: 'production',
   module: {
@@ -34,8 +34,8 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: '[name].[hash].css',
+      chunkFilename: '[name].[hash].css'
     }),
     new HardSourceWebpackPlugin()
   ],
