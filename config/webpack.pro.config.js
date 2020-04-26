@@ -40,8 +40,8 @@ module.exports = {
       filename: '[name].[hash].css',
       chunkFilename: '[name].[hash].css'
     }),
-    new HardSourceWebpackPlugin(),
-    new BundleAnalyzerPlugin()
+    new HardSourceWebpackPlugin()
+    // new BundleAnalyzerPlugin()
   ],
 
   optimization: {
