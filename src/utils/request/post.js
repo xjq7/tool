@@ -4,7 +4,8 @@ function post(url, data) {
     fetch
       .post(url, data)
       .then(res => {
-        resolve(res);
+        const { data } = res;
+        resolve(data);
       })
       .catch(error => {
         reject(error);

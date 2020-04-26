@@ -4,7 +4,8 @@ function get(url, data) {
     fetch
       .get(url, { params: data })
       .then(res => {
-        resolve(res);
+        const { data } = res;
+        resolve(data);
       })
       .catch(error => {
         reject(error);
