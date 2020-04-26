@@ -11,7 +11,7 @@ const UploadAliyun = ({ onChange, viewSuccess }) => {
     name: 'file',
     accept: 'image/*',
     multiple: false,
-    action: `${api}ossUpload`,
+    action: `${api}/api/oss/upload`,
     beforeUpload(file) {
       const isLt5M = file.size / 1024 / 1024 > 5;
       if (isLt5M) {
