@@ -1,8 +1,13 @@
 import React from 'react';
 import App from './pages';
+import Layout from './pages/layout';
 class RouterApp extends React.Component {
   render() {
-    return <App />;
+    return (
+      <Layout>
+        <App />
+      </Layout>
+    );
   }
 }
 

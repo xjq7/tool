@@ -31,26 +31,26 @@ class Img extends React.Component {
       message.error(error.message);
     }
   }
-  changeUpload(bool) {
+  changeUpload = bool => {
     this.setState({ successUpload: bool });
-  }
+  };
   render() {
     const { url, successUpload, total } = this.state;
     return (
-      <div className={styles.root}>
+      <div>
         <Card>
           <span>今日图床上传总数:{total}</span>
         </Card>
         <div className={styles.contentBox}>
           {successUpload ? (
-            <Success url={url} uploadNext={this.changeUpload.bind(this, false)}></Success>
+            <Success url={url} uploadNext={() => this.changeUpload(false)}></Success>
           ) : (
             <>
               <div>
                 <h1 className={styles.title}>Figure bed</h1>
               </div>
               <UploadAliyun
-                viewSuccess={this.changeUpload.bind(this, true)}
+                viewSuccess={() => this.changeUpload(true)}
                 onChange={url => this.setState({ url, successUpload: true, total: total + 1 })}
               ></UploadAliyun>
             </>
