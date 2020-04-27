@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import styles from './Success.scss';
 import { Button, message } from 'antd';
 import copy from 'copy-to-clipboard';
+
+function isImg(name) {
+  for (const v of ['.png', '.gif', '.jpg', 'jpeg']) {
+    if (name.endsWith(v)) return true;
+  }
+  return false;
+}
+
 const Success = ({ url, uploadNext }) => {
   return (
     <div className={styles.box}>
@@ -22,7 +30,7 @@ const Success = ({ url, uploadNext }) => {
       ) : (
         <>
           <h1 style={{ color: '#40a9ff' }}>上传成功!</h1>
-          <img src={url} className={styles.img}></img>
+          {isImg(url) && <img src={url} className={styles.img}></img>}
           <span className={styles.url}>{url}</span>
           <div>
             <Button
