@@ -8,7 +8,7 @@ const Header = () => {
         <Link to="/" style={{ marginRight: 20, marginLeft: 20 }}>
           上传
         </Link>
-        <Link to="/feature">功能介绍</Link>
+        <Link to="/feature">使用须知</Link>
       </div>
     </div>
   );
