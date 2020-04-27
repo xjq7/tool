@@ -8,6 +8,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -20,4 +21,4 @@ module.exports = {
     semi: ['error', 'always'],
     quotes: ['error', 'single']
   }
-}
+};
