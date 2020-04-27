@@ -9,7 +9,6 @@ import { api } from '@/config/server';
 const UploadAliyun = ({ onChange, viewSuccess }) => {
   const uploadParams = {
     name: 'file',
-    accept: 'image/*',
     multiple: false,
     action: `${api}/api/oss/upload`,
     beforeUpload(file) {
