@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './index.scss';
 import UploadAliyun from './component/UploadAliyun';
 import Success from './component/Success';
 import { message, Card } from 'antd';
 import { getFolderList } from './service';
+import styles from './index.scss';
 class Img extends React.Component {
   constructor(props) {
     super(props);

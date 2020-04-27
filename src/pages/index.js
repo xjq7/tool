@@ -1,17 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Header } from './components';
+import { Header, Footer } from './components';
 import Img from './img';
 import Feature from './feature';
+import Layout from './layout';
 const App = () => {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/" component={Img} exact />
-        <Route path="/feature" component={Feature} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/" component={Img} exact />
+          <Route path="/feature" component={Feature} />
+        </Switch>
+      </Layout>
+      <Footer />
     </Router>
   );
 };
