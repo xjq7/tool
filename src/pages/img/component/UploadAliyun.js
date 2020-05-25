@@ -12,7 +12,7 @@ const UploadAliyun = ({ onChange, viewSuccess }) => {
     multiple: false,
     action: `${api}/api/oss/upload`,
     beforeUpload(file) {
-      const isLt5M = file.size / 1024 / 1024 > 5;
+      const isLt5M = file.size / 1024 / 1024 > 10;
       if (isLt5M) {
         message.error('请选择小于5 mb 的图片');
         return false;
@@ -39,7 +39,7 @@ const UploadAliyun = ({ onChange, viewSuccess }) => {
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">选择图片(5 mb 以下)</p>
+        <p className="ant-upload-text">选择图片(10 mb 以下)</p>
       </Dragger>
       <Button style={{ marginTop: 30 }} type="primary" onClick={viewSuccess}>
         查看已上传图片
