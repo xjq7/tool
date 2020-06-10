@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
   entry: { bundle: './index.js', vendor: vendorPkg },
   output: {
-    publicPath: 'https://image.xjq.icu/static/',
+    publicPath: 'https://image.xjq.icu/',
     filename: '[name].[hash].js'
   },
   mode: 'production',
