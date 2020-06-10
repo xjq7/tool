@@ -6,7 +6,7 @@ import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
 import { api } from '@/config/server';
 
-const UploadAliyun = ({ onChange, currentTotal }) => {
+const UploadAliyun = ({ onChange, currentTotal, addCurrentTotal }) => {
   const [loading, setLoading] = useState(false);
   const uploadParams = {
     name: 'file',
@@ -15,6 +15,7 @@ const UploadAliyun = ({ onChange, currentTotal }) => {
     showUploadList: false,
     beforeUpload(files) {
       setLoading(true);
+      addCurrentTotal();
       const isLt5M = files.size / 1024 / 1024 > 10;
       if (isLt5M) {
         message.error('请选择小于10 mb 的文件');
@@ -28,7 +29,7 @@ const UploadAliyun = ({ onChange, currentTotal }) => {
       } = info;
       if (status === 'done') {
         if (fileList.length <= currentTotal + 1) setLoading(false);
-
+        addCurrentTotal();
         const {
           response: { url },
           name
@@ -37,6 +38,7 @@ const UploadAliyun = ({ onChange, currentTotal }) => {
         onChange({ name, url: url.replace('http', 'https') });
       } else if (status === 'error') {
         setLoading(false);
+        addCurrentTotal();
         const { name } = info.file;
         message.error(`${name}上传失败`);
       }
@@ -56,7 +58,8 @@ const UploadAliyun = ({ onChange, currentTotal }) => {
 
 UploadAliyun.propTypes = {
   onChange: PropTypes.func.isRequired,
-  currentTotal: PropTypes.number.isRequired
+  currentTotal: PropTypes.number.isRequired,
+  addCurrentTotal: PropTypes.func.isRequired
 };
 
 export default UploadAliyun;

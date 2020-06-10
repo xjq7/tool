@@ -46,10 +46,11 @@ class Img extends React.Component {
           <UploadAliyun
             loading
             currentTotal={currentTotal}
+            addCurrentTotal={() => this.setState({ currentTotal: currentTotal + 1 })}
             onChange={({ url, name }) => {
               const { files } = this.state;
               files.push({ url, name });
-              this.setState({ files, total: total + 1, currentTotal: currentTotal + 1 });
+              this.setState({ files, total: total + 1 });
             }}
           ></UploadAliyun>
         </div>

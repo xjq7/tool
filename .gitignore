@@ -4,6 +4,6 @@
 # 打包文件
 /dist/*.js
 /dist/*.css
-
+favicon.ico
 # log
 yarn-error.log
