@@ -1,16 +1,16 @@
 /* eslint-disable no-undef */
-const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const vendorPkg = ['react', 'react-dom', 'react-router-dom', 'prop-types'];
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: { bundle: './index.js', vendor: vendorPkg },
   output: {
-    path: path.resolve(__dirname, '../dist/source'),
+    publicPath: 'https://image.xjq.icu/static/',
     filename: '[name].[hash].js'
   },
   mode: 'production',
@@ -40,7 +40,9 @@ module.exports = {
       filename: '[name].[hash].css',
       chunkFilename: '[name].[hash].css'
     }),
-    new HardSourceWebpackPlugin()
+    new HardSourceWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new CleanWebpackPlugin()
     // new BundleAnalyzerPlugin()
   ],
 

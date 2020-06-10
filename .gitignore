@@ -1,4 +1,9 @@
 /node_modules/
 .DS_Store
 *.lock
-/dist/source/
+# 打包文件
+/dist/*.js
+/dist/*.css
+
+# log
+yarn-error.log

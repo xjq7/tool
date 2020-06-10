@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, './dev'),
+    path: path.resolve(__dirname, './public'),
     filename: 'bundle.js'
   },
   cache: true,
@@ -33,7 +33,7 @@ module.exports = {
   plugins: [
     new HardSourceWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './dev/index.html'
+      template: './public/index.html'
     })
   ],
   devtool: '',
@@ -45,7 +45,7 @@ module.exports = {
         secure: false // 设置支持https协议的代理
       }
     },
-    contentBase: path.join(__dirname, './dev'),
+    contentBase: path.join(__dirname, './public'),
     hot: true,
     publicPath: '/',
     historyApiFallback: true
