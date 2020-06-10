@@ -1,56 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Upload, message, Button } from 'antd';
+import { Upload, message, Spin } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
 import { api } from '@/config/server';
 
-const UploadAliyun = ({ onChange, viewSuccess }) => {
+const UploadAliyun = ({ onChange, currentTotal }) => {
+  const [loading, setLoading] = useState(false);
   const uploadParams = {
     name: 'file',
-    multiple: false,
+    multiple: true,
     action: `${api}/api/oss/upload`,
-    beforeUpload(file) {
-      const isLt5M = file.size / 1024 / 1024 > 10;
+    showUploadList: false,
+    beforeUpload(files) {
+      setLoading(true);
+      const isLt5M = files.size / 1024 / 1024 > 10;
       if (isLt5M) {
-        message.error('请选择小于5 mb 的图片');
+        message.error('请选择小于10 mb 的文件');
         return false;
       }
     },
     onChange(info) {
-      const { status } = info.file;
+      const {
+        file: { status },
+        fileList
+      } = info;
       if (status === 'done') {
+        if (fileList.length <= currentTotal + 1) setLoading(false);
+
         const {
           response: { url },
           name
         } = info.file;
         message.success(`${name}上传成功!`);
-        onChange(url.replace('http', 'https'));
+        onChange({ name, url: url.replace('http', 'https') });
       } else if (status === 'error') {
+        setLoading(false);
         const { name } = info.file;
         message.error(`${name}上传失败`);
       }
     }
   };
   return (
-    <>
+    <Spin spinning={loading} tip="上传中...">
       <Dragger {...uploadParams} className={styles.draggerBox}>
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">选择图片(10 mb 以下)</p>
+        <p className="ant-upload-text">选择文件(10 mb 以下,一次最多5个)</p>
       </Dragger>
-      <Button style={{ marginTop: 30 }} type="primary" onClick={viewSuccess}>
-        查看已上传图片
-      </Button>
-    </>
+    </Spin>
   );
 };
 
 UploadAliyun.propTypes = {
   onChange: PropTypes.func.isRequired,
-  viewSuccess: PropTypes.func.isRequired
+  currentTotal: PropTypes.number.isRequired
 };
 
 export default UploadAliyun;

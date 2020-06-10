@@ -1,16 +1,16 @@
 import React from 'react';
 import UploadAliyun from './component/UploadAliyun';
-import Success from './component/Success';
-import { message, Card } from 'antd';
+import { message, Card, List, Button } from 'antd';
 import { getFolderList } from './service';
 import styles from './index.scss';
+import copy from 'copy-to-clipboard';
 class Img extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: '',
-      successUpload: false,
-      total: 0
+      files: [],
+      total: 0,
+      currentTotal: 0
     };
   }
 
@@ -31,31 +31,50 @@ class Img extends React.Component {
       message.error(error.message);
     }
   }
-  changeUpload = bool => {
-    this.setState({ successUpload: bool });
-  };
   render() {
-    const { url, successUpload, total } = this.state;
+    const { files, total, currentTotal } = this.state;
     return (
       <div>
         <Card>
           <span>今日图床上传总数:{total}</span>
         </Card>
+
         <div className={styles.contentBox}>
-          {successUpload ? (
-            <Success url={url} uploadNext={() => this.changeUpload(false)}></Success>
-          ) : (
-            <>
-              <div>
-                <h1 className={styles.title}>Figure bed</h1>
-              </div>
-              <UploadAliyun
-                viewSuccess={() => this.changeUpload(true)}
-                onChange={url => this.setState({ url, successUpload: true, total: total + 1 })}
-              ></UploadAliyun>
-            </>
-          )}
+          <div>
+            <h1 className={styles.title}>Figure bed</h1>
+          </div>
+          <UploadAliyun
+            loading
+            currentTotal={currentTotal}
+            onChange={({ url, name }) => {
+              const { files } = this.state;
+              files.push({ url, name });
+              this.setState({ files, total: total + 1, currentTotal: currentTotal + 1 });
+            }}
+          ></UploadAliyun>
         </div>
+
+        <List
+          className={styles.list_container}
+          header={<div>文件列表:</div>}
+          bordered
+          dataSource={files}
+          renderItem={item => (
+            <List.Item>
+              {item.name.length < 30 ? item.name : item.name.substr(0, 30) + '......'}
+              <Button
+                style={{ marginLeft: 20 }}
+                type="primary"
+                onClick={() => {
+                  copy(item.url);
+                  message.success('复制链接成功!');
+                }}
+              >
+                复制链接
+              </Button>
+            </List.Item>
+          )}
+        />
       </div>
     );
   }
