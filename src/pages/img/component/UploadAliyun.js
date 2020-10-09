@@ -19,6 +19,7 @@ const UploadAliyun = ({ onChange, currentTotal, addCurrentTotal }) => {
       const isLt5M = files.size / 1024 / 1024 > 10;
       if (isLt5M) {
         message.error('请选择小于10 mb 的文件');
+        setLoading(false);
         return false;
       }
     },
