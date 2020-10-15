@@ -15,21 +15,11 @@ class Img extends React.Component {
   }
 
   async componentDidMount() {
-    try {
-      const {
-        code,
-        data: { total },
-        msg
-      } = await getFolderList();
-      if (code) {
-        this.setState({ total });
-      } else {
-        message.error(msg);
-      }
-    } catch (error) {
-      this.setState({ total: '请求失败' });
-      message.error(error.message);
-    }
+    const {
+      data: { total }
+    } = await getFolderList();
+
+    this.setState({ total });
   }
   render() {
     const { files, total, currentTotal } = this.state;
