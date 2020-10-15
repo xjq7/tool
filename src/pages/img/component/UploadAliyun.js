@@ -4,14 +4,14 @@ import { Upload, message, Spin } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styles from './UploadAliyun.scss';
 const { Dragger } = Upload;
-import { api } from '@/config/server';
+import config from '@/config/api';
 
 const UploadAliyun = ({ onChange, currentTotal, addCurrentTotal }) => {
   const [loading, setLoading] = useState(false);
   const uploadParams = {
     name: 'file',
     multiple: true,
-    action: `${api}/api/oss/upload`,
+    action: `${config.api}/api/oss/upload`,
     showUploadList: false,
     beforeUpload(files) {
       setLoading(true);

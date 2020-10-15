@@ -5,7 +5,6 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const vendorPkg = ['react', 'react-dom', 'react-router-dom', 'prop-types'];
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: { bundle: './index.js', vendor: vendorPkg },
@@ -43,7 +42,6 @@ module.exports = {
     new HardSourceWebpackPlugin(),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
     new CleanWebpackPlugin()
-    // new BundleAnalyzerPlugin()
   ],
 
   optimization: {
