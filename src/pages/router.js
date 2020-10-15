@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Header, Footer } from './components';
+import { Header, Footer, Layout } from '@/components';
 import Img from './img';
 import Feature from './feature';
-import Layout from './layout';
 import Announcement from './announcement';
+
 const App = () => {
   return (
     <Router>

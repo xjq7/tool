@@ -25,10 +25,6 @@ class Img extends React.Component {
     const { files, total, currentTotal } = this.state;
     return (
       <div>
-        <Card>
-          <span>今日图床上传总数:{total}</span>
-        </Card>
-
         <div className={styles.contentBox}>
           <div>
             <h1 className={styles.title}>Figure bed</h1>
