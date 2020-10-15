@@ -1,4 +1,4 @@
-import { fetch } from '@/utils';
+import request from '@/utils/request';
 export function getFolderList() {
-  return fetch.get('/ossInfo/getFolderList');
+  return request.get('/ossInfo/getFolderList');
 }
