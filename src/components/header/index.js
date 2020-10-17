@@ -6,9 +6,17 @@ const Header = () => {
     <div className={styles.root}>
       <div>
         <Link to="/" style={{ marginRight: 20, marginLeft: 20 }}>
-          上传
+          图床
         </Link>
-        <Link to="/feature">使用须知</Link>
+        <Link to="/hash" style={{ marginRight: 20, marginLeft: 20 }}>
+          文件md5计算
+        </Link>
+        <Link to="/detectImg" style={{ marginRight: 20, marginLeft: 20 }}>
+          图片鉴黄
+        </Link>
+        <Link to="/feature" style={{ marginRight: 20, marginLeft: 20 }}>
+          使用须知
+        </Link>
       </div>
     </div>
   );
