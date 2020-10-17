@@ -5,7 +5,6 @@ import { Header, Footer, Layout } from '@/components';
 import Img from './img';
 import Feature from './feature';
 import Hash from './hash';
-import DetectImg from './detectImg';
 
 const App = () => {
   return (
@@ -15,7 +14,6 @@ const App = () => {
         <Switch>
           <Route path="/" component={Img} exact />
           <Route path="/feature" component={Feature} />
-          <Route path="/detectImg" component={DetectImg} />
           <Route path="/hash" component={Hash} />
         </Switch>
       </Layout>
