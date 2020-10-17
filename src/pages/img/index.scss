@@ -1,3 +1,12 @@
+.container {
+  width: 100%;
+  height: auto;
+  box-sizing: content-box;
+  padding: 20px 0;
+  background-color: #f4f5f5;
+  display: flex;
+  justify-content: center;
+}
 .contentBox {
   background-color: white;
   display: flex;

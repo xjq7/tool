@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Footer, Layout } from '@/components';
 import Img from './img';
 import Feature from './feature';
-import Announcement from './announcement';
 import Hash from './hash';
 import DetectImg from './detectImg';
 
