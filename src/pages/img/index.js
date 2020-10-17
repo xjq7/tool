@@ -1,6 +1,6 @@
 import React from 'react';
 import UploadAliyun from './component/UploadAliyun';
-import { message, Card, List, Button } from 'antd';
+import { message, List, Button } from 'antd';
 import { getFolderList } from './service';
 import styles from './index.scss';
 import copy from 'copy-to-clipboard';
@@ -14,13 +14,6 @@ class Img extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    const {
-      data: { total }
-    } = await getFolderList();
-
-    this.setState({ total });
-  }
   render() {
     const { files, total, currentTotal } = this.state;
     return (
