@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aliyun-oss-static-deploy": "^1.0.0",
+    "aliyun-oss-static-deploy": "^1.0.2",
     "antd": "^4.0.3",
     "axios": "^0.19.2",
     "copy-to-clipboard": "^3.3.1",
