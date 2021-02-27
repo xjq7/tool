@@ -28,7 +28,5 @@ const instance = axios.create({
   headers: { 'Content-Type': 'application/json' }
 });
 export function detectUrl(params) {
-  return instance.get('http://127.0.0.1:10087/v1', { params }).then(res => res.data);
+  return instance.get('http://pac.xjq.icu/v1', { params }).then(res => res.data);
 }
-
-
