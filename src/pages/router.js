@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/" component={Img} exact />
           <Route path="/feature" component={Feature} />
           <Route path="/hash" component={Hash} />
-          <Route path="/pac" component={Pac} />
+          {/* <Route path="/pac" component={Pac} /> */}
         </Switch>
       </Layout>
       <Footer />
