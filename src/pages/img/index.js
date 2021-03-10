@@ -9,13 +9,12 @@ class Img extends React.Component {
     super(props);
     this.state = {
       files: [],
-      total: 0,
-      currentTotal: 0
+      total: 0
     };
   }
 
   render() {
-    const { files, total, currentTotal } = this.state;
+    const { files, total } = this.state;
     return (
       <div className={styles.container}>
         <div>
@@ -25,8 +24,6 @@ class Img extends React.Component {
             </div>
             <UploadAliyun
               loading
-              currentTotal={currentTotal}
-              addCurrentTotal={() => this.setState({ currentTotal: currentTotal + 1 })}
               onChange={({ url, name }) => {
                 const { files } = this.state;
                 files.push({ url, name });
