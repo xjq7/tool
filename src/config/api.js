@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV;
 
 const config = {
   development: {
-    api: 'https://api.xjq.icu'
+    api: 'http://127.0.0.1:10088'
   },
   production: {
     api: 'https://api.xjq.icu'

@@ -1,7 +1,6 @@
 import React from 'react';
 import UploadAliyun from './component/UploadAliyun';
 import { message, List, Button } from 'antd';
-import { getFolderList } from './service';
 import styles from './index.scss';
 import copy from 'copy-to-clipboard';
 class Img extends React.Component {
@@ -9,13 +8,12 @@ class Img extends React.Component {
     super(props);
     this.state = {
       files: [],
-      total: 0,
-      currentTotal: 0
+      total: 0
     };
   }
 
   render() {
-    const { files, total, currentTotal } = this.state;
+    const { files, total } = this.state;
     return (
       <div className={styles.container}>
         <div>
@@ -25,8 +23,6 @@ class Img extends React.Component {
             </div>
             <UploadAliyun
               loading
-              currentTotal={currentTotal}
-              addCurrentTotal={() => this.setState({ currentTotal: currentTotal + 1 })}
               onChange={({ url, name }) => {
                 const { files } = this.state;
                 files.push({ url, name });
