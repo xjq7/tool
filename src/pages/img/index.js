@@ -1,7 +1,6 @@
 import React from 'react';
 import UploadAliyun from './component/UploadAliyun';
 import { message, List, Button } from 'antd';
-import { getFolderList } from './service';
 import styles from './index.scss';
 import copy from 'copy-to-clipboard';
 class Img extends React.Component {

@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "ali-oss": "^6.13.2",
-    "aliyun-oss-static-deploy": "^1.0.2",
+    "aliyun-oss-static-deploy": "^1.0.3",
     "antd": "^4.0.3",
     "axios": "^0.19.2",
     "copy-to-clipboard": "^3.3.1",
