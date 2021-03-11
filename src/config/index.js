@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
+import dev from './dev.config';
+import pro from './pro.config';
+
 const env = process.env.NODE_ENV;
 
 const config = {
-  development: {
-    api: 'http://127.0.0.1:10088'
-  },
-  production: {
-    api: 'https://api.xjq.icu'
-  }
+  development: dev,
+  production: pro
 };
 
 export default config[env];

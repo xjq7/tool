@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '@/config/api';
+import config from '@/config';
 import { message } from 'antd';
 
 const instance = axios.create({

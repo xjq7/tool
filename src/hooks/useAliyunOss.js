@@ -1,12 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 import { useState, useEffect, useCallback } from 'react';
 import AliyunOss from 'ali-oss';
-import request from '@/utils/request';
-
-function getUploadToken() {
-  return request.get('/oss/ststoken');
-}
-
+import { getUploadToken } from '@/api';
 function useAliyunOss() {
   const [ossToken, setOssToken] = useState();
   const [instance, setInstance] = useState();
