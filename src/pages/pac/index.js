@@ -29,7 +29,12 @@ function Pac() {
         message.error(JSON.stringify(msg));
       }
     } catch (error) {
-      message.error(JSON.stringify(error));
+      const { message: errorMsg } = error || {};
+      if (errorMsg) {
+        message.error(errorMsg);
+      } else {
+        message.error(JSON.stringify(error));
+      }
     } finally {
       setSearchLoading(false);
     }
