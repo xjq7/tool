@@ -11,7 +11,6 @@ function Pac() {
   const [searchLoading, setSearchLoading] = useState(false);
 
   const onSearch = async v => {
-    console.log(v);
     if (!/^(http|https):\/\//g.test(v)) {
       message.error('请输入完整地址,如https://www.example.com');
       return;
@@ -21,12 +20,13 @@ function Pac() {
     setSearchLoading(true);
     try {
       const urlsRes = await getUrls({ address: v });
-      const { code, data } = urlsRes;
+      const { code, msg, data } = urlsRes;
 
       if (code) {
         const { data: detectHostRes } = await detectHost({ urls: data.join(',') });
-
         setUrls(detectHostRes);
+      } else {
+        message.error(JSON.stringify(msg));
       }
     } catch (error) {
       message.error(JSON.stringify(error));

@@ -24,13 +24,12 @@ axios.interceptors.response.use(function(response) {
 
 const instance = axios.create({
   baseURL: '',
-  timeout: 60000
-  // headers: { 'Content-Type': 'application/json' }
+  timeout: 60000,
+  headers: { 'Content-Type': 'application/json' }
 });
 export function detectHost(params) {
-  // return instance.get('http://pac.xjq.icu/parsingHost', { params }).then(res => res.data);
-  return instance.get('http://127.0.0.1:10087/parsingHost', { params }).then(res => res.data);
+  return instance.get('https://pac.xjq.icu/parsingHost', { params }).then(res => res.data);
 }
 export function getUrls(params) {
-  return instance.get('http://154.209.87.138:10087/parsingUrl', { params }).then(res => res.data);
+  return instance.get('https://hk.xjq.icu/parsingUrl', { params }).then(res => res.data);
 }
