@@ -11,9 +11,6 @@ const Header = () => {
         <Link to="/hash" style={{ marginRight: 20, marginLeft: 20 }}>
           文件md5计算
         </Link>
-        <Link to="/pac" style={{ marginRight: 20, marginLeft: 20 }}>
-          pac配置文件
-        </Link>
         <Link to="/feature" style={{ marginRight: 20, marginLeft: 20 }}>
           使用须知
         </Link>
