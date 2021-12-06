@@ -3,13 +3,13 @@
 const Axios = require('axios');
 
 const instance = Axios.create({
-  baseURL: 'https://api.xjq.icu/api',
+  baseURL: 'https://api.xjq.icu/v1',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' }
 });
 
 function getUploadToken() {
-  return instance.get('/oss/ststoken').then(({ data: responseData }) => {
+  return instance.get('/public/ststoken').then(({ data: responseData }) => {
     const { code, data } = responseData;
     if (code === 1) {
       return data;
