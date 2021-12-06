@@ -22,7 +22,7 @@ instance.interceptors.request.use(function(config) {
 instance.interceptors.response.use(function({ data: responseData }) {
   // 对响应数据做点什么
   const { code, msg, data } = responseData;
-  if (code === 1) {
+  if (code === 0) {
     return data;
   } else {
     message.success(msg);

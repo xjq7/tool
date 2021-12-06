@@ -13,7 +13,7 @@ const instance = Axios.create({
 function getUploadToken() {
   return instance.get('/public/sts-token').then(({ data: responseData }) => {
     const { code, data } = responseData;
-    if (code === 1) {
+    if (code === 0) {
       return data;
     } else {
       process.exit(1);
