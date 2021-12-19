@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --config webpack.config.js  --hot",
+    "dev": "webpack-dev-server --mode development --config webpack.config.js  --hot",
+    "production": "webpack-dev-server --mode production --config webpack.config.js  --hot",
     "build": "webpack --config config/webpack.pro.config.js"
   },
   "author": "",
@@ -13,7 +14,7 @@
     "ali-oss": "^6.13.2",
     "aliyun-oss-static-deploy": "^1.0.3",
     "antd": "^4.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.24.0",
     "copy-to-clipboard": "^3.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",

@@ -1,6 +1,5 @@
 /node_modules/
 .DS_Store
-*.lock
 # 打包文件
 /dist/*.js
 /dist/*.css
