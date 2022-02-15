@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   env: {
     browser: true,
@@ -21,6 +22,13 @@ module.exports = {
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
-    'react-hooks/exhaustive-deps': 'warn' // 检查 effect 的依赖
+    'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
+    'prefer-object-spread': 2,
+    'prefer-destructuring': ['error', {
+      'array': true,
+      'object': true
+    }, {
+      'enforceForRenamedProperties': false
+    }]
   }
 };
