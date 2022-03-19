@@ -31,7 +31,7 @@ jobs:
           node-version: 12
 
       - name: Install Packages
-        run: npm i pnpm
+        run: npm i pnpm -g
 
       - name: Install Packages
         run: pnpm install
