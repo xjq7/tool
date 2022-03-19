@@ -31,6 +31,9 @@ jobs:
           node-version: 12
 
       - name: Install Packages
+        run: npm i pnpm
+
+      - name: Install Packages
         run: pnpm install
 
       - name: Build
