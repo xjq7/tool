@@ -7,7 +7,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const instance = Axios.create({
   baseURL: 'https://api.xjq.icu/v1',
   timeout: 10000,
-  headers: { 'Content-Type': 'application/json' }
+  headers: { 'Content-Type': 'application/json' },
 });
 
 function getUploadToken() {
@@ -22,21 +22,22 @@ function getUploadToken() {
 }
 
 const deploy = require('aliyun-oss-static-deploy');
+const path = require('path');
 
-(function() {
-  getUploadToken().then(ossConfig => {
+(function () {
+  getUploadToken().then((ossConfig) => {
     const { AccessKeyId, AccessKeySecret, SecurityToken } = ossConfig || {};
     ossConfig = Object.assign({}, ossConfig, {
       stsToken: SecurityToken,
       accessKeyId: AccessKeyId,
-      accessKeySecret: AccessKeySecret
+      accessKeySecret: AccessKeySecret,
     });
     deploy({
       ossConfig,
       //  最好同时配置staticPath,ossPath,确定上传文件路径以及存储路径
-      staticPath: 'dist', // 默认为根路径
+      staticPath: path.resolve(__dirname, 'dist'), // 默认为根路径
       ossPath: 'img', // oss存储路径,默认是根路径,
-      recursion: true // 递归上传,默认为true,文件夹下所有文件递归上传
+      recursion: true, // 递归上传,默认为true,文件夹下所有文件递归上传
     });
   });
 })();

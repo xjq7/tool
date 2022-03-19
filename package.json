@@ -10,7 +10,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "ali-oss": "^6.13.2",
-    "aliyun-oss-static-deploy": "^1.0.3",
+    "aliyun-oss-static-deploy": "git@github.com:xjq7/aliyun-oss-static-deploy.git",
     "antd": "^4.16.10",
     "axios": "^0.24.0",
     "copy-to-clipboard": "^3.3.1",

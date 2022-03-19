@@ -6,9 +6,6 @@ const path = require('path');
 // https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.NODE_ENV === 'development' ? './' : 'https://image.xjq.icu/img/',
-  build: {
-    outDir: path.resolve(__dirname, './build'),
-  },
   plugins: [react()],
   root: '',
   server: {
