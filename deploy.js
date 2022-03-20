@@ -31,6 +31,7 @@ const path = require('path');
       stsToken: SecurityToken,
       accessKeyId: AccessKeyId,
       accessKeySecret: AccessKeySecret,
+      timeout: 60 * 3,
     });
     deploy({
       ossConfig,
