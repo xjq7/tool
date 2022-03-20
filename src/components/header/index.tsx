@@ -7,9 +7,9 @@ const Header = () => {
         <Link to="/" style={{ marginRight: 20, marginLeft: 20 }}>
           图床
         </Link>
-        <Link to="/book" style={{ marginRight: 20, marginLeft: 20 }}>
+        {/* <Link to="/book" style={{ marginRight: 20, marginLeft: 20 }}>
           存储桶
-        </Link>
+        </Link> */}
         <Link to="/hash" style={{ marginRight: 20, marginLeft: 20 }}>
           文件md5计算
         </Link>
