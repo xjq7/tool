@@ -73,9 +73,11 @@ export default function Component() {
         return (
           <div>
             {text.map((item: any) => (
-              <a target="_blank" href={FILE_PREIX + item.path}>
-                {item.name}
-              </a>
+              <div>
+                <a target="_blank" href={FILE_PREIX + item.path}>
+                  {item.name}
+                </a>
+              </div>
             ))}
           </div>
         );
