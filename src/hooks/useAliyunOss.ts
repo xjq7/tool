@@ -11,8 +11,8 @@ function useAliyunOss() {
 
   const fetchToken = useCallback(() => {
     return getUploadToken().then((res: any) => {
-      setOssToken(res);
-      return res;
+      setOssToken(res.data);
+      return res.data;
     });
   }, []);
 

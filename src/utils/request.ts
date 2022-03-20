@@ -23,9 +23,9 @@ instance.interceptors.request.use(function (config) {
 // 添加响应拦截器
 instance.interceptors.response.use(function ({ data: responseData }) {
   // 对响应数据做点什么
-  const { code, message: msg, data } = responseData;
+  const { code, message: msg } = responseData;
   if (code === 0) {
-    return data;
+    return responseData;
   } else {
     message.error(msg);
   }
