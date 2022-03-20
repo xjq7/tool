@@ -20,6 +20,7 @@ export default defineConfig({
       '@services': path.resolve(__dirname, './', 'src/services'),
       '@hooks': path.resolve(__dirname, './', 'src/hooks'),
       '@components': path.resolve(__dirname, './', 'src/components'),
+      '@constant': path.resolve(__dirname, './', 'src/constant'),
     },
   },
   // 配置less

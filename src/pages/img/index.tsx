@@ -6,7 +6,7 @@ import copy from 'copy-to-clipboard';
 import styles from './index.module.less';
 
 function Img() {
-  const [files, setFiles] = useState<{url:string,name:string}[]>([]);
+  const [files, setFiles] = useState<{ url: string; name: string }[]>([]);
   const [total, setTotal] = useState(0);
 
   const { ossStore } = useAliyunOss();
@@ -41,15 +41,12 @@ function Img() {
         </div>
 
         <List
-          className={styles.list_container}
           header={<div>文件列表:</div>}
           bordered
           dataSource={files}
           renderItem={(item) => (
             <List.Item>
-              {item.name.length < 30
-                ? item.name
-                : item.name.substr(0, 30) + '......'}
+              {item.name.length < 30 ? item.name : item.name.substr(0, 30) + '......'}
               <Button
                 style={{ marginLeft: 20 }}
                 type="primary"

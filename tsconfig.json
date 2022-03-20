@@ -21,7 +21,8 @@
       "@utils/*": ["src/utils/*"],
       "@components/*": ["src/components/*"],
       "@services/*": ["src/services/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@constant/*": ["src/constant/*"]
     },
     "types": ["vite/client"]
   },

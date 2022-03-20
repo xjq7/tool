@@ -3,7 +3,7 @@ import { Header, Footer, Layout } from '@components';
 import Img from './img';
 import Feature from './feature';
 import Hash from './hash';
-import Bucket from './bucket';
+import Book from './book';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
           <Route path="/" component={Img} exact />
           <Route path="/feature" component={Feature} />
           <Route path="/hash" component={Hash} />
-          <Route path="/bucket" component={Bucket} />
+          <Route path="/book" component={Book} />
         </Switch>
       </Layout>
       <Footer />

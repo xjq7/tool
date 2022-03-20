@@ -23,17 +23,17 @@ instance.interceptors.request.use(function (config) {
 // 添加响应拦截器
 instance.interceptors.response.use(function ({ data: responseData }) {
   // 对响应数据做点什么
-  const { code, msg, data } = responseData;
+  const { code, message: msg, data } = responseData;
   if (code === 0) {
     return data;
   } else {
-    message.success(msg);
+    message.error(msg);
   }
 }, errorFetch);
 
 // const methods = [
 //   { name: 'get', paramsKey: 'params' },
-//   { name: 'post', paramsKey: 'data' }
+//   { name: 'post', paramsKey: 'data' },
 // ];
 // const fetch = methods.reduce((acc, cur) => {
 //   const { name, paramsKey } = cur;
@@ -45,4 +45,11 @@ instance.interceptors.response.use(function ({ data: responseData }) {
 //   return acc;
 // }, {});
 
-export default instance;
+export const get = function (url: string, data?: any): any {
+  return instance.get(url, { params: data });
+};
+export const post = function (url: string, data?: any): any {
+  return instance.post(url, data);
+};
+
+export default { get, post };
