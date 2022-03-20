@@ -26,14 +26,16 @@ export default function Bucket() {
     ]);
   };
 
-  const onFinish = async (form: any) => {
-    const { name, desc, category1, category2 } = form;
+  const onFinish = async (formValues: any) => {
+    const { name, desc, category1, category2 } = formValues;
     if (!fileList.length) {
       message.error('请上传书籍');
       return;
     }
     const data = { files: fileList, name, desc, category1, category2, created_at: new Date() };
     await createBook(data);
+    setFileList([]);
+    form.resetFields();
     message.success('创建成功');
   };
 
