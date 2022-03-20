@@ -1,7 +1,7 @@
 import request from '@utils/request';
 
 export function upload2Bucket(params: any) {
-  return request.post('/book/bucket/upload', params);
+  return request.post('/book/bucket/upload', params, { timeout: 60 * 1000 });
 }
 
 export function getCategoryList() {
