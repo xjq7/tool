@@ -5,7 +5,7 @@ import { message } from 'antd';
 const { VITE_API: API } = import.meta.env;
 
 const instance = axios.create({
-  baseURL: `${API}/v1`,
+  baseURL: `${API}`,
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
