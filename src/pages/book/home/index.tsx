@@ -82,9 +82,9 @@ export default function Component() {
             <Input placeholder="请输入书名" allowClear />
           </Form.Item>
           <Form.Item label="分类" name="category_id">
-            <SelectCategory style={{ width: 120 }} allowClear level={1} placeholder="请选择分类" />
+            <SelectCategory style={{ width: 180 }} allowClear placeholder="请选择分类" />
           </Form.Item>
-          <Form.Item style={{ margin: 20 }}>
+          <Form.Item style={{ marginLeft: 20 }}>
             <Button type="primary" onClick={handleSearch} loading={loading}>
               搜索
             </Button>
