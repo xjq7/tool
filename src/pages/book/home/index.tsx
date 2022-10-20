@@ -18,8 +18,8 @@ export default function Component() {
   const fetchList = async (page?: number, pageSize?: number) => {
     try {
       setLoading(true);
-      const { name, category1, category2 } = await form.getFieldsValue();
-      const { data } = await getBookList({ page, pageSize, category1, category2, name });
+      const { name, category_id } = await form.getFieldsValue();
+      const { data } = await getBookList({ page, pageSize, category_id, name });
       const { list: bookList = [], ...pageInfo } = data;
       setList(bookList);
       setPageInfo({ ...pageInfo });
@@ -31,10 +31,6 @@ export default function Component() {
 
   const fetchFirstList = async () => {
     await fetchList(initPageInfo.page, initPageInfo.pageSize);
-  };
-
-  const refresh = async () => {
-    fetchFirstList();
   };
 
   useEffect(() => {
@@ -52,18 +48,11 @@ export default function Component() {
       dataIndex: 'name',
     },
     {
-      title: '一级类目',
+      title: '分类',
       width: 120,
       align: 'center' as AlignType,
-      key: 'category1_name',
-      dataIndex: 'category1_name',
-    },
-    {
-      title: '二级类目',
-      width: 120,
-      align: 'center' as AlignType,
-      key: 'category2_name',
-      dataIndex: 'category2_name',
+      key: 'category_name',
+      dataIndex: 'category_name',
     },
     {
       title: '文件列表',
@@ -92,13 +81,10 @@ export default function Component() {
           <Form.Item label="书名" name="name">
             <Input placeholder="请输入书名" allowClear />
           </Form.Item>
-          <Form.Item label="一级类目" name="category1">
-            <SelectCategory style={{ width: 120 }} allowClear level={1} placeholder="请选择一级类目" />
+          <Form.Item label="分类" name="category_id">
+            <SelectCategory style={{ width: 180 }} allowClear placeholder="请选择分类" />
           </Form.Item>
-          <Form.Item label="二级类目" name="category2">
-            <SelectCategory style={{ width: 120 }} level={2} allowClear placeholder="请选择二级类目" />
-          </Form.Item>
-          <Form.Item style={{ margin: 20 }}>
+          <Form.Item style={{ marginLeft: 20 }}>
             <Button type="primary" onClick={handleSearch} loading={loading}>
               搜索
             </Button>

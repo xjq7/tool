@@ -1,23 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Select, SelectProps } from 'antd';
+import { TreeSelect, TreeSelectProps } from 'antd';
 import { getCategoryList } from '@services/book';
 
-interface Props extends SelectProps<any> {
-  level?: number;
-}
+interface Props extends TreeSelectProps<any> {}
 const Component = function (props: Props) {
-  const { level = 1, ...restProps } = props;
+  const { ...restProps } = props;
   const [category, setCategory] = useState([]);
 
   const fetchCategory = async () => {
     const { data } = await getCategoryList();
-    const category1 = data.filter((item: any) => item.level === 1);
-    const category2 = data.filter((item: any) => item.level === 2);
-    if (level === 1) {
-      setCategory(category1);
-    } else {
-      setCategory(category2);
-    }
+    setCategory(data);
   };
 
   useEffect(() => {
@@ -25,13 +17,15 @@ const Component = function (props: Props) {
   }, []);
 
   return (
-    <Select placeholder="请选择一级类目" {...restProps}>
-      {category.map(({ id, name }) => (
-        <Select.Option key={id} value={id}>
-          {name}
-        </Select.Option>
-      ))}
-    </Select>
+    <TreeSelect
+      placeholder="请选择分类"
+      fieldNames={{ label: 'name', value: 'id' }}
+      showSearch
+      treeDefaultExpandAll
+      treeData={category}
+      allowClear
+      {...restProps}
+    />
   );
 };
 Component.defaultProps = {
