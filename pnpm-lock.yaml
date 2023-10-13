@@ -563,6 +563,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /word-wrap@1.2.5:
+    resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
+    engines: {node: '>=0.10.0'}
+
   registry.npmmirror.com/@ampproject/remapping@2.1.2:
     resolution: {integrity: sha512-hoyByceqwKirw7w3Z7gnIIZC3Wx3J484Y3L/cMpXFbr7d9ZQj2mODrirNzcJa+SM3UlpWXYvKV4RlRpFXlWgXg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@ampproject/remapping/-/remapping-2.1.2.tgz}
     name: '@ampproject/remapping'
@@ -3504,7 +3508,7 @@ packages:
       levn: registry.npmmirror.com/levn@0.3.0
       prelude-ls: registry.npmmirror.com/prelude-ls@1.1.2
       type-check: registry.npmmirror.com/type-check@0.3.2
-      word-wrap: registry.npmmirror.com/word-wrap@1.2.3
+      word-wrap: 1.2.5
     dev: false
 
   registry.npmmirror.com/optionator@0.9.1:
@@ -3518,7 +3522,7 @@ packages:
       levn: registry.npmmirror.com/levn@0.4.1
       prelude-ls: registry.npmmirror.com/prelude-ls@1.2.1
       type-check: registry.npmmirror.com/type-check@0.4.0
-      word-wrap: registry.npmmirror.com/word-wrap@1.2.3
+      word-wrap: 1.2.5
     dev: true
 
   registry.npmmirror.com/os-name@1.0.3:
@@ -5156,12 +5160,6 @@ packages:
     dependencies:
       semver: registry.npmmirror.com/semver@5.7.1
     dev: false
-
-  registry.npmmirror.com/word-wrap@1.2.3:
-    resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/word-wrap/-/word-wrap-1.2.3.tgz}
-    name: word-wrap
-    version: 1.2.3
-    engines: {node: '>=0.10.0'}
 
   registry.npmmirror.com/wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz}
