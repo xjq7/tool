@@ -409,7 +409,7 @@ packages:
     requiresBuild: true
     dependencies:
       pify: registry.npmmirror.com/pify@4.0.1
-      semver: registry.npmmirror.com/semver@5.7.1
+      semver: 5.7.2
     dev: true
     optional: true
 
@@ -506,6 +506,23 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /semver@5.7.2:
+    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
+    hasBin: true
+
+  /semver@6.3.0:
+    resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
+    hasBin: true
+    dev: true
+
+  /semver@7.3.5:
+    resolution: {integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: registry.npmmirror.com/lru-cache@6.0.0
     dev: true
 
   /source-map-js@1.0.2:
@@ -657,7 +674,7 @@ packages:
       debug: registry.npmmirror.com/debug@4.3.4
       gensync: registry.npmmirror.com/gensync@1.0.0-beta.2
       json5: registry.npmmirror.com/json5@2.2.0
-      semver: registry.npmmirror.com/semver@6.3.0
+      semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -695,7 +712,7 @@ packages:
       '@babel/core': registry.npmmirror.com/@babel/core@7.17.7
       '@babel/helper-validator-option': registry.npmmirror.com/@babel/helper-validator-option@7.16.7
       browserslist: registry.npmmirror.com/browserslist@4.20.2
-      semver: registry.npmmirror.com/semver@6.3.0
+      semver: 6.3.0
     dev: true
 
   registry.npmmirror.com/@babel/helper-environment-visitor@7.16.7:
@@ -1189,7 +1206,7 @@ packages:
       functional-red-black-tree: registry.npmmirror.com/functional-red-black-tree@1.0.1
       ignore: registry.npmmirror.com/ignore@5.2.0
       regexpp: registry.npmmirror.com/regexpp@3.2.0
-      semver: registry.npmmirror.com/semver@7.3.5
+      semver: 7.3.5
       tsutils: registry.npmmirror.com/tsutils@3.21.0(typescript@4.6.2)
       typescript: registry.npmmirror.com/typescript@4.6.2
     transitivePeerDependencies:
@@ -1275,7 +1292,7 @@ packages:
       debug: registry.npmmirror.com/debug@4.3.4
       globby: registry.npmmirror.com/globby@11.1.0
       is-glob: registry.npmmirror.com/is-glob@4.0.3
-      semver: registry.npmmirror.com/semver@7.3.5
+      semver: 7.3.5
       tsutils: registry.npmmirror.com/tsutils@3.21.0(typescript@4.6.2)
       typescript: registry.npmmirror.com/typescript@4.6.2
     transitivePeerDependencies:
@@ -2154,7 +2171,7 @@ packages:
       eslint-plugin-import: registry.npmmirror.com/eslint-plugin-import@2.25.4(@typescript-eslint/parser@5.15.0)(eslint@8.11.0)
       object.assign: registry.npmmirror.com/object.assign@4.1.2
       object.entries: registry.npmmirror.com/object.entries@1.1.5
-      semver: registry.npmmirror.com/semver@6.3.0
+      semver: 6.3.0
     dev: true
 
   registry.npmmirror.com/eslint-config-airbnb@19.0.4(eslint-plugin-import@2.25.4)(eslint-plugin-jsx-a11y@6.5.1)(eslint-plugin-react-hooks@4.3.0)(eslint-plugin-react@7.29.4)(eslint@8.11.0):
@@ -2312,7 +2329,7 @@ packages:
       object.values: registry.npmmirror.com/object.values@1.1.5
       prop-types: 15.8.1
       resolve: registry.npmmirror.com/resolve@2.0.0-next.3
-      semver: registry.npmmirror.com/semver@6.3.0
+      semver: 6.3.0
       string.prototype.matchall: registry.npmmirror.com/string.prototype.matchall@4.0.6
     dev: true
 
@@ -4633,29 +4650,6 @@ packages:
       get-ready: registry.npmmirror.com/get-ready@1.0.0
     dev: false
 
-  registry.npmmirror.com/semver@5.7.1:
-    resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/semver/-/semver-5.7.1.tgz}
-    name: semver
-    version: 5.7.1
-    hasBin: true
-
-  registry.npmmirror.com/semver@6.3.0:
-    resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/semver/-/semver-6.3.0.tgz}
-    name: semver
-    version: 6.3.0
-    hasBin: true
-    dev: true
-
-  registry.npmmirror.com/semver@7.3.5:
-    resolution: {integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/semver/-/semver-7.3.5.tgz}
-    name: semver
-    version: 7.3.5
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: registry.npmmirror.com/lru-cache@6.0.0
-    dev: true
-
   registry.npmmirror.com/setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/setprototypeof/-/setprototypeof-1.2.0.tgz}
     name: setprototypeof
@@ -5154,7 +5148,7 @@ packages:
     version: 1.1.1
     engines: {node: '>=0.10.0'}
     dependencies:
-      semver: registry.npmmirror.com/semver@5.7.1
+      semver: 5.7.2
     dev: false
 
   registry.npmmirror.com/word-wrap@1.2.3:
